@@ -303,14 +303,11 @@
         }
 
         function toggleSection(sectionClass) {
-            const allExercises = document.querySelectorAll('.exercise');
-            allExercises.forEach(exercise => {
-                exercise.style.display = 'none';
-            });
-
             const sectionExercises = document.querySelectorAll(`.${sectionClass}`);
+            const isVisible = Array.from(sectionExercises).some(exercise => exercise.style.display === 'block');
+
             sectionExercises.forEach(exercise => {
-                exercise.style.display = 'block';
+                exercise.style.display = isVisible ? 'none' : 'block';
             });
         }
 
