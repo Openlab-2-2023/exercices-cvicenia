@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Cvičenia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 80vh;
+        }
+
+        .editor-container,
+        .output-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .editor-container {
+            border-right: 1px solid #ccc;
+        }
+
+        .output-container {
+            border-left: 1px solid #ccc;
+        }
+
+        .CodeMirror {
+            flex: 1;
+            height: 100%;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        #output {
+            flex: 1;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            background: #f5f5f5;
+            padding: 10px;
+            box-sizing: border-box;
+            font-family: monospace;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="section-header">Cvičenia s For-cyklom</div>
+    <div class="exercise exercise-color-green">
+        <h2 onclick="toggleExercise(1)">Cvičenie 1: Hľadanie znaku v texte</h2>
+        <div class="exercise-content" id="exercise1">
+            <p>Vytvorte funkciu, ktorá prijme dva parametre: <b>string</b> (text) a <b>character</b> (znak). Pomocou
+                <b>cyklu</b> zistite, <b>či sa daný znak nachádza v texte</b>. Ak sa nachádza, vypíšte na konzolu jeho
+                <b>prvú pozíciu</b> v texte (počítané od 0). Ak sa znak v texte <b>nenachádza</b>, vypíšte:
+            </p>
+            <pre>👉 "Znak 'x' sa v texte nenachádza."</pre>
+            <p><b>Príklad:</b></p>
+            <pre>najdiZnak("programovanie", "o");</pre>
+            <p><b>Výstup:</b></p>
+            <pre>Znak 'o' sa nachádza na pozícii 2.</pre>
+        </div>
+    </div>
+
+    <div class="exercise exercise-color-green">
+        <h2 onclick="toggleExercise(2)">Cvičenie 2: Vypísanie textu odzadu</h2>
+        <div class="exercise-content" id="exercise2">
+            <p>Vytvorte funkciu, ktorá prijme jeden parameter: <b>string</b> (text). Pomocou <b>cyklu</b> vypíšte text
+                <b>odzadu</b>.
+            </p>
+            <p><b>Príklad:</b></p>
+            <pre>otocText("hello");</pre>
+            <p><b>Výstup:</b></p>
+            <pre>olleh</pre>
+        </div>
+    </div>
+
+    <div class="exercise exercise-color-green">
+        <h2 onclick="toggleExercise(3)">Cvičenie 3: Počet výskytov znaku v texte</h2>
+        <div class="exercise-content" id="exercise3">
+            <p>Vytvorte funkciu, ktorá prijme dva parametre: <b>string</b> (text) a <b>character</b> (znak). Pomocou
+                <b>cyklu</b> zistite, <b>koľkokrát sa daný znak v texte nachádza</b>. Výsledok vypíšte na konzolu vo
+                formáte:
+            </p>
+            <pre>👉 "Znak 'a' sa v texte nachádza 3-krát."</pre>
+            <p>Ak sa znak v texte <b>nenachádza</b>, vypíšte:</p>
+            <pre>👉 "Znak 'x' sa v texte nenachádza."</pre>
+            <p><b>Príklad:</b></p>
+            <pre>pocetVyskytov("banana", "a");</pre>
+            <p><b>Výstup:</b></p>
+            <pre>Znak 'a' sa v texte nachádza 3-krát.</pre>
+        </div>
+    </div>
+
+    <div class="exercise exercise-color-yellow">
+        <h2 onclick="toggleExercise(4)">Cvičenie 4: Faktoriál čísla</h2>
+        <div class="exercise-content" id="exercise4">
+            <p>Vytvorte funkciu, ktorá prijme číslo a pomocou <b>cyklu</b> vypočíta jeho faktoriál. Výsledok vypíšte na
+                konzolu vo formáte:</p>
+            <pre>👉 "Faktoriál čísla 5 je 120."</pre>
+            <p><b>Príklad:</b></p>
+            <pre>factorial(5);</pre>
+            <p><b>Výstup:</b></p>
+            <pre>Faktoriál čísla 5 je 120.</pre>
+            <p><b>Hint:</b> Faktorial 5 = 5 * 4 * 3 * 2 * 1 . Faktorial 8 = 8 * 7 * 6 ... * 1 .</p>
+        </div>
+    </div>
+
+    <div class="exercise exercise-color-yellow">
+        <h2 onclick="toggleExercise(5)">Cvičenie 5: Počet samohlások v texte</h2>
+        <div class="exercise-content" id="exercise5">
+            <p>Vytvorte funkciu, ktorá prijme <b>textový reťazec</b> a pomocou <b>cyklu</b> zistí <b>počet samohlások v
+                    texte</b>. Výsledok vypíšte na konzolu vo formáte:</p>
+            <pre>👉 "Počet samohlások v texte je 3."</pre>
+            <p><b>Príklad:</b></p>
+            <pre>countVowels("hello");</pre>
+            <p><b>Výstup:</b></p>
+            <pre>Počet samohlások v texte je 2.</pre>
+        </div>
+    </div>
+
+    <div class="exercise exercise-color-yellow">
+        <h2 onclick="toggleExercise(6)">Cvičenie 6: Fibonacciho postupnosť</h2>
+        <div class="exercise-content" id="exercise6">
+            <p>Vytvorte funkciu, ktorá prijme <b>číslo</b> a pomocou <b>cyklu</b> vygeneruje <b>Fibonacciho postupnosť
+                    do tohto čísla -> posledné čislo postupnosti je menšie ako zadané čislo</b>. Výsledok vypíšte na
+                konzolu vo formáte:</p>
+            <pre>👉 "Fibonacciho postupnosť do 5 je [0, 1, 1, 2, 3, 5]."</pre>
+            <p><b>Príklad:</b></p>
+            <pre>fibonacci(5);</pre>
+            <p><b>Výstup:</b></p>
+            <pre>Fibonacciho postupnosť do 5 je [0, 1, 1, 2, 3, 5].</pre>
+        </div>
+    </div>
+    <div class="section-header">Cvičenia s While-cyklom</div>
+    <div class="exercise exercise-color-red">
+        <h2 onclick="toggleExercise(8)">Cvičenie 8: Odpočítavanie s oneskorením</h2>
+        <div class="exercise-content" id="exercise8">
+            <p>Vytvorte funkciu, ktorá bude <b>odpočítavať od 10 do 1</b> a zobrazovať čísla pomocou funkcie
+                <b>console.log()</b> s
+                <b>jednosekundovým oneskorením</b> medzi každým číslom.
+            </p>
+            <p><b>Príklad:</b></p>
+            <pre>countdown();</pre>
+            <p><b>Výstup:</b></p>
+            <pre>10, 9, ..., 1, 🚀 Liftoff 🚀</pre>
+            <p><b>Hint:</b> Použite <code>setTimeout</code> na vytvorenie oneskorenia medzi cyklami.</p>
+            <div id="countdown-display"></div>
+        </div>
+    </div>
+
+    <div class="exercise exercise-color-red">
+        <h2 onclick="toggleExercise(9)">Cvičenie 9: Hádanie čísla</h2>
+        <div class="exercise-content" id="exercise9">
+            <p>Vytvorte funkciu, ktorá prijme <b>číslo</b> ako parameter a bude <b>pýtať číslo</b> od používateľa
+                pomocou <b>prompt</b>, kým používateľ neuhádne správne číslo. Po každom vstupe vypíšte, či je zadané
+                číslo <b>vyššie</b> alebo <b>nižšie</b> ako správne číslo.</p>
+            <p><b>Príklad:</b></p>
+            <pre>guessNumber(7);</pre>
+            <p><b>Výstup:</b></p>
+            <pre>prompt("Zadajte číslo:") -> "Číslo je nižšie ◀️ " alebo "Číslo je vyššie ▶️ " až kým neuhádne správne číslo</pre>
+        </div>
+    </div>
+
+    <div class="exercise exercise-color-black">
+        <h2 onclick="toggleExercise(10)">Cvičenie 10: Hangman hra</h2>
+        <div class="exercise-content" id="exercise10">
+            <p>Vytvorte jednoduchú hru <b>Hangman</b> pomocou <b>while</b> cyklu na kontrolu slova pre zadaný znak.
+                Počet životov bude dĺžka slova alebo kým sa slovo neuhádne správne.</p>
+            <p><b>Príklad:</b></p>
+            <pre>hangman("javascript");</pre>
+            <p><b>Výstup:</b></p>
+            <pre>prompt("Zadajte znak:") -> "Správne!" alebo "Nesprávne, máte ešte X životov ❤️"</pre>
+            <div id="hangman-game">
+                <h3>Hangman</h3>
+                <input type="text" id="hangman-input" maxlength="1" placeholder="Zadajte znak">
+                <button onclick="playHangman()">Skúsiť</button>
+                <div id="hangman-display"></div>
+                <div id="hangman-lives"></div>
+            </div>
+        </div>
+    </div>
+    <div class="section-header">Cvičenia Array + cyklus</div>
+    <div class="exercise exercise-color-lightblue">
+        <h2 onclick="toggleExercise(11)">Cvičenie 11: Súčet čísel</h2>
+        <div class="exercise-content" id="exercise11">
+            <p>Vytvorte funkciu, ktorá prijme ako parameter <b>pole čísel</b>. Použite cyklus <b>(for alebo forEach)</b>
+                a <b>vrátte súčet</b> čísel poľa.</p>
+            <p><b>Príklad:</b></p>
+            <p><b>Vstup:</b></p>
+            <pre>[5, 10, 15, 20]</pre>
+            <p><b>Výstup:</b></p>
+            <pre>50</pre>
+        </div>
+    </div>
+
+    <!-- Exercise 12: Find the Longest Word -->
+    <div class="exercise exercise-color-lightblue">
+        <h2 onclick="toggleExercise(12)">Cvičenie 12: Nájdi najdlhšie slovo</h2>
+        <div class="exercise-content" id="exercise12">
+            <p>Vytvorte funkciu, ktorá prijme ako parameter <b>pole slov</b>, nájdite <b>najdlhšie slovo</b> pomocou
+                cyklu.</p>
+            <p><b>Príklad:</b></p>
+            <pre>
+    let words = ["apple", "banana", "strawberry", "kiwi"];
+            </pre>
+            <p><b>Výstup:</b></p>
+            <pre>"strawberry"</pre>
+        </div>
+    </div>
+
+    <!-- Exercise 13: Filtering Even Numbers -->
+    <div class="exercise exercise-color-lightblue">
+        <h2 onclick="toggleExercise(13)">Cvičenie 13: Filtrovanie párnych čísel</h2>
+        <div class="exercise-content" id="exercise13">
+            <p>Vytvorte funkciu, ktorá prijme ako parameter <b>pole čísel</b>, vytvorte a <b>vrátte nové pole</b>, ktoré
+                obsahujúce <b>iba párne čísla.</b></p>
+            <p><b>Príklad:</b></p>
+            <p><b>Vstup:</b></p>
+            <pre>[7, 15, 8, 11, 10, 23, 12]</pre>
+            <p><b>Výstup:</b></p>
+            <pre>[8, 12, 10]</pre>
+        </div>
+    </div>
+
+    <div class="exercise exercise-color-lightblue">
+        <h2 onclick="toggleExercise(14)">Cvičenie 14: Odstránenie duplikátov z poľa</h2>
+        <div class="exercise-content" id="exercise14">
+            <p>Vytvorte funkciu, ktorá prijme <b>pole čísel</b> a <b>vráti nové pole</b>, ktoré <b>neobsahuje žiadne
+                    duplikáty</b>. Použite cykly na dosiahnutie tohto cieľa.</p>
+            <p><b>Príklad:</b></p>
+            <p><b>Vstup:</b></p>
+            <pre>[1, 2, 2, 3, 4, 4, 5]</pre>
+            <p><b>Výstup:</b></p>
+            <pre>[1, 2, 3, 4, 5]</pre>
+        </div>
+    </div>
+
+    <hr> <!-- Delimiter between exercises and JS console -->
+
+    <h2>JS Konzola</h2>
+    <p>Napis JS kod a klikni "Run Code" na zobrazenie vysledku.</p>
+
+    <div class="container">
+        <div class="editor-container">
+            <textarea id="code" name="code"></textarea>
+            <div class="buttons">
+                <button onclick="runCode()">Run Code</button>
+                <button onclick="clearEditor()">Clear Editor</button>
+            </div>
+        </div>
+        <div class="output-container">
+            <div id="output"></div>
+            <div class="buttons">
+                <button onclick="clearOutput()">Clear Output</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="hello.js"></script>
+    <script>
+
+        const editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+            mode: 'javascript',
+            lineNumbers: true,
+            theme: 'default',
+            matchBrackets: true,
+            lineWrapping: true,
+            indentUnit: 4
+        });
+
+        // Set the initial content of the editor
+        editor.setValue(initialCode);
+
+        function toggleExercise(id) {
+            let content = document.getElementById("exercise" + id);
+            content.style.display = content.style.display === "none" || content.style.display === "" ? "block" : "none";
+        }
+
+        function runCode() {
+            const code = editor.getValue();
+            const outputDiv = document.getElementById('output');
+
+            outputDiv.textContent = ""; // Clear previous output
+
+            const oldConsoleLog = console.log;
+            console.log = function (message) {
+                outputDiv.textContent += message + "\n";
+                oldConsoleLog.apply(console, arguments);
+            };
+
+            try {
+                new Function(code)();
+            } catch (error) {
+                console.log("Error: " + error.message);
+            }
+
+            console.log = oldConsoleLog;
+        }
+
+        function clearOutput() {
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+        }
+
+        function clearEditor() {
+            editor.setValue('');
+        }
+
+        function hangman(word) {
+            toggleExercise(10); // Ensure the exercise content is displayed
+
+            let lives = word.length;
+            let guessedWord = '_'.repeat(word.length);
+            const display = document.getElementById('hangman-display');
+            const livesDisplay = document.getElementById('hangman-lives');
+            const input = document.getElementById('hangman-input');
+
+            function updateDisplay() {
+                display.innerHTML = guessedWord.split('').join(' ');
+                livesDisplay.innerHTML = `❤️: ${lives}`;
+            }
+
+            function playHangman() {
+                const guess = input.value.toLowerCase();
+                input.value = '';
+                if (guess.length !== 1) {
+                    alert('Prosím, zadajte jeden znak.');
+                    return;
+                }
+
+                let correctGuess = false;
+                let newGuessedWord = '';
+                for (let i = 0; i < word.length; i++) {
+                    if (word[i] === guess) {
+                        newGuessedWord += guess;
+                        correctGuess = true;
+                    } else {
+                        newGuessedWord += guessedWord[i];
+                    }
+                }
+                guessedWord = newGuessedWord;
+
+                if (!correctGuess) {
+                    lives--;
+                }
+
+                if (lives <= 0) {
+                    display.innerHTML = `Prehrali ste! Slovo bolo: ${word}`;
+                    return;
+                }
+
+                if (guessedWord === word) {
+                    display.innerHTML = `Vyhrali ste! Slovo je: ${word}`;
+                    return;
+                }
+
+                updateDisplay();
+            }
+
+            updateDisplay();
+            window.playHangman = playHangman; // Expose the function to the global scope
+        }
+    </script>
+
+</body>
+
+</html>
