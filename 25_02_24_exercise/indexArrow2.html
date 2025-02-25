@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function List Filter</title>
+    <style>
+        ul { list-style: none; padding: 0; }
+        li { padding: 5px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <input type="text" id="searchBox" placeholder="Search items...">
+    <ul id="itemList">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+        <li>Date</li>
+        <li>Grapes</li>
+    </ul>
+
+    <script>
+        const filterList = () => {
+            let searchValue = document.getElementById("searchBox").value.toLowerCase();
+            let items = document.querySelectorAll("#itemList li");
+
+            items.forEach(item => {
+                item.classList.toggle("hidden", !item.innerText.toLowerCase().includes(searchValue));
+            });
+        };
+
+        document.getElementById("searchBox").addEventListener("input", filterList);
+    </script>
+</body>
+</html>

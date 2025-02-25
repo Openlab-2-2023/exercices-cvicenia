@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function Exercise</title>
+</head>
+<body>
+    <p id="text">Click the button to change this text!</p>
+    <button id="changeTextBtn">Change Text</button>
+
+    <script>
+        const changeText = () => {
+            document.getElementById("text").innerText = "Text changed using an arrow function!";
+        };
+
+        document.getElementById("changeTextBtn").addEventListener("click", changeText);
+    </script>
+</body>
+</html>
