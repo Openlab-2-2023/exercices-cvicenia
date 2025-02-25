@@ -1,11 +1,11 @@
 # JavaScript s HTML a CSS
 
-## Cvičenie 1: Pouzite arrow funkciu na zmenu textu v elemente <p> po stlaceni tlacidla.
+## Cvičenie 1: Pouzite arrow funkciu na zmenu textu v elemente paragraf po stlaceni tlacidla.
 
 ### Kroky
-1. Vytvorte lubovolny <p>
+1. Vytvorte lubovolny paragraf
 2. Vytvorte tlacidlo
-3. Napiste kod arrow funkcie, ktora zmeni text <p> po stlaceni tlacidla
+3. Napiste kod arrow funkcie, ktora zmeni text paragrafu po stlaceni tlacidla
 
 ## Cvičenie 2: Pouzite arrow funkciu na filtrovanie listu na zaklade vstupu.
 
